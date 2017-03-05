@@ -1,0 +1,15 @@
+# a simple sshd config
+
+# basics
+Port 22
+Protocol 2
+HostKey /etc/ssh/ssh_host_ed25519_key
+HostKey /etc/ssh/ssh_host_rsa_key
+# key exchange protocols
+KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
+# only allow authentication with keys
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+UsePAM no
+PubkeyAuthentication yes
+AuthorizedKeysFile  %h/.ssh/authorized_keys
